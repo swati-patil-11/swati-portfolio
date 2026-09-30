@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "leetcode": "swatii_11",
+    "codechef": "CODECHEF_USERNAME",
+    "gfg": "GFG_USERNAME"
+  },
+  "formspreeEndpoint": "PASTE_FORMSPREE_ENDPOINT_HERE"
+}
