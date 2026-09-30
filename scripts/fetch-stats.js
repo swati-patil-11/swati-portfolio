@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 
-const config = JSON.parse(await fs.readFile(new URL("../data/config.json", import.meta.url), "utf8")).profiles;
+await import(new URL("../data/config.js", import.meta.url));
+const config = globalThis.PORTFOLIO_CONFIG.stats;
 const file = new URL("../data/stats.json", import.meta.url);
 let previous = {};
 try { previous = JSON.parse(await fs.readFile(file, "utf8")); } catch { /* Start with empty values when no data exists yet. */ }
@@ -15,8 +16,8 @@ async function leetcode() {
 }
 
 async function profilePage(url, selectors) { const response = await fetch(url, { headers: { "user-agent": "Mozilla/5.0 portfolio-stats/1.0" } }); if (!response.ok) throw new Error(`Profile HTTP ${response.status}`); const html = await response.text(); for (const selector of selectors) { const match = html.match(selector); if (match) return { solved: Number(match[1].replace(/,/g, "")) }; } throw new Error("Solved count not found"); }
-async function codechef() { if (config.codechef === "CODECHEF_USERNAME") throw new Error("CodeChef username is still a placeholder"); return profilePage(`https://www.codechef.com/users/${config.codechef}`, [/Problems Solved[\s\S]{0,500}?([\d,]+)/i, /Fully Solved[\s\S]{0,300}?([\d,]+)/i]); }
-async function gfg() { if (config.gfg === "GFG_USERNAME") throw new Error("GFG username is still a placeholder"); return profilePage(`https://www.geeksforgeeks.org/user/${config.gfg}/`, [/Problems Solved[\s\S]{0,400}?([\d,]+)/i, /problemSolved[^\d]{0,40}(\d+)/i]); }
+async function codechef() { return profilePage(`https://www.codechef.com/users/${config.codechef}`, [/Problems Solved[\s\S]{0,500}?([\d,]+)/i, /Fully Solved[\s\S]{0,300}?([\d,]+)/i]); }
+async function gfg() { return profilePage(`https://www.geeksforgeeks.org/profile/${config.gfg}?tab=activity`, [/Problems Solved[\s\S]{0,400}?([\d,]+)/i, /problemSolved[^\d]{0,40}(\d+)/i]); }
 
 // CodeChef and GFG do not provide official APIs; these page parsers can break when their markup changes.
 const fetchers = { leetcode, codechef, gfg };

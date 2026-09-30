@@ -23,10 +23,7 @@ The workflow runs every six hours, on push, and through manual **workflow_dispat
 
 ## Before publishing checklist
 
-- [ ] Replace the seven `PASTE_CERTIFICATE_LINK_HERE` values in `script.js`.
-- [ ] Replace the three placeholder project GitHub links in `script.js`.
-- [ ] Replace `CODECHEF_USERNAME` and `GFG_USERNAME` in `data/config.json` (the single profile configuration file).
-- [ ] Update the LeetCode fallback count in `fallbackStats` in `script.js`.
-- [ ] Replace `PASTE_FORMSPREE_ENDPOINT_HERE` in `data/config.json`.
+- [x] Profile, certificate, badge, and project URLs live in the single `data/config.js` object.
+- [ ] Replace `PASTE_FORMSPREE_ENDPOINT_HERE` in `data/config.js`.
 - [ ] Add your actual `resume.pdf` beside `index.html`.
 - [ ] Optionally update the canonical/Open Graph URL in `index.html` to match the repository URL.

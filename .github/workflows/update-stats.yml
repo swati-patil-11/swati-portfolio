@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - "scripts/fetch-stats.js"
+      - "data/config.js"
       - ".github/workflows/update-stats.yml"
 permissions:
   contents: write
