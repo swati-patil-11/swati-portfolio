@@ -1,7 +1,7 @@
 {
   "leetcode": {
-    "solved": 120,
-    "easy": 78,
+    "solved": 121,
+    "easy": 79,
     "medium": 42,
     "hard": 0
   },
@@ -11,5 +11,5 @@
   "gfg": {
     "solved": 250
   },
-  "updatedAt": "2026-10-03T04:29:31.360Z"
+  "updatedAt": "2026-10-03T11:19:01.179Z"
 }
