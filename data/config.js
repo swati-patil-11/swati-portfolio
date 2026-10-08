@@ -1,6 +1,6 @@
 globalThis.PORTFOLIO_CONFIG = {
   profiles: {
-    linkedin: "https://linkedin.com/in/swati-patil-11",
+    linkedin: "https://www.linkedin.com/in/swati-patil-b3816128a/",
     github: "https://github.com/swati-patil-11",
     leetcode: "https://leetcode.com/u/swatii_11/",
     codechef: "https://www.codechef.com/users/shoal_stone_74",
