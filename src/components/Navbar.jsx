@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
+const sections = [
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "projects", label: "Projects" },
+  { id: "certificates", label: "Certificates" },
+  { id: "contact", label: "Contact" },
+];
+
 function Navbar() {
   const [active, setActive] = useState("about");
-
-  const sections = [
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "certificates", label: "Certificates" },
-    { id: "contact", label: "Contact" },
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
