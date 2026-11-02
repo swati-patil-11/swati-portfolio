@@ -1,16 +1,31 @@
-# React + Vite
+# Swati Patil Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plain HTML, CSS, and vanilla JavaScript portfolio site. No build step or dependencies are required to open the page.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Double-click `index.html` for the visual site. The page includes fallback stats for `file://` because browsers do not allow local JSON fetches. To run the live stats fetcher, use Node 18+:
 
-## React Compiler
+```bash
+npm run fetch-stats
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+For a local server, run `python3 -m http.server` from this folder and open `http://localhost:8000`.
 
-## Expanding the ESLint configuration
+## GitHub Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Push this folder to a GitHub repository.
+2. Open repository **Settings -> Pages**.
+3. Select **Deploy from a branch**, choose the branch and `/ (root)`, then save.
+4. In **Settings -> Actions -> General**, allow read and write permissions so the stats workflow can commit `data/stats.json`.
+
+The published URL for this repository is `https://swati-patil-11.github.io/swati-portfolio/`.
+
+The workflow runs every six hours, on push, and through manual **workflow_dispatch**. CodeChef and GeeksforGeeks profiles do not expose official APIs, so their public-page parsers may need maintenance if site markup changes.
+
+## Before publishing checklist
+
+- [x] Profile, certificate, badge, and project URLs live in the single `data/config.js` object.
+- [ ] Replace `PASTE_FORMSPREE_ENDPOINT_HERE` in `data/config.js`.
+- [ ] Add your actual `resume.pdf` beside `index.html`.
+- [x] Canonical/Open Graph URL in `index.html` matches the repository URL.
